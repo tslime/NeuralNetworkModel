@@ -27,24 +27,35 @@ class Neuron:
     
     def sigmoid(self,v):
         return (1/(1+np.exp(-v)))
- 
+
+    def tanh(self,v):
+        return (np.exp(v) - np.exp(-v))/(np.exp(v) + np.exp(-v))
+    
+    def relu(self,v):
+        return max(0,v)
+
+    def leakyRelu(self,v,alpha):
+        if v > 0:
+            return v
+        else:
+            return alpha*v  
+
     
 
 """Testing"""
 
-"""
+
 inp = 3*[None]
 
 for a in range(len(inp)):
     inp[a] = a+1
 
 
-nr = Neuron(len(inp),2)
+nr = Neuron(len(inp))
 
 print("The linear transform of this neuron is: ",nr.linear_transform(inp,nr))
 print()
-print("And its output is: ",nr.sigmoid(nr.linear_transform(inp,nr)))
+print("And its output is: ",nr.leakyRelu(nr.linear_transform(inp,nr),0.01))
 
 
 print()
-"""

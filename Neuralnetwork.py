@@ -38,6 +38,8 @@ class Neuralnetwork:
         for x in range(outlayer_size):
             self.layers[k][x] = Neuron(mlayers_size[b-1])
 
+    def softmax(self,outputs:[]):
+        return np.exp(outputs)/(np.sum(np.exp(outputs)))
 
 
     def feedforward_sigmoid(self,inputs:[]):
@@ -78,4 +80,6 @@ print()
 o_result = nn.feedforward_sigmoid([1,-1])
 
 print("The feedforward output results are: \n",o_result)
+
+print("softmax test: \n",nn.softmax([2,1,1]))
 
