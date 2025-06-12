@@ -6,9 +6,12 @@ import numpy as np
 
 class Neuron:
     
-    def __init__(self,w:[],b:float):
-        self.weights = w
-        self.bias = b
+    def __init__(self,num_weights):
+        self.weights = num_weights*[None]
+        for i in range(num_weights):
+            self.weights[i] = random.uniform(-1,1)
+        
+        self.bias = random.uniform(-1,1)
 
 
     def linear_transform(self,inputs:[],n):
@@ -18,7 +21,7 @@ class Neuron:
             if len(inputs) > len(n.weights):
                 print("Error: Too many inputs \n")
             else:
-                t = np.dot(inputs,n.weights) + b
+                t = np.dot(inputs,n.weights) + n.bias
 
         return t
     
@@ -30,16 +33,13 @@ class Neuron:
 """Testing"""
 
 """
-weight = 3*[None]
 inp = 3*[None]
 
-for a in range(len(weight)):
-    weight[a] = a+2
+for a in range(len(inp)):
+    inp[a] = a+1
 
-for b in range(len(inp)):
-    inp[b] = b+1
 
-nr = Neuron(weight,2)
+nr = Neuron(len(inp),2)
 
 print("The linear transform of this neuron is: ",nr.linear_transform(inp,nr))
 print()
