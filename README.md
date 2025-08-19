@@ -14,7 +14,7 @@ This project is part of my technical portfolio and is referenced in my CV.
 
 ## Tech Stack
 
-Python, NumPy, Matplotlib
+Python, NumPy
 
 ## How to Run
 
