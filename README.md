@@ -2,8 +2,6 @@
 
 A simple, educational implementation of a feedforward neural network built from scratch in Python using NumPy.
 
-neural test
-
 ## Overview
 
 This project implements a customizable feedforward neural network without relying on deep learning frameworks like TensorFlow or PyTorch. It's designed to help understand the fundamental concepts of neural networks, including neuron structure, layer connections, and activation functions.
